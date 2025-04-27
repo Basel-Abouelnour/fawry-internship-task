@@ -1,0 +1,37 @@
+You're asked to build a mini version of the grep command. Your script will be called mygrep.sh and must support:
+Ì¥π Basic Functionality
+‚Ä¢ Search for a string (case-insensitive)
+‚Ä¢ Print matching lines from a text file
+Ì¥π Command-Line Options:
+‚Ä¢ -n ‚Üí Show line numbers for each match
+‚Ä¢ -v ‚Üí Invert the match (print lines that do not match)
+‚Ä¢ Combinations like -vn, -nv should work the same as using -v -n
+  
+Ìª†Ô∏è Technical Requirements:
+1.  The script must be executable and accept input as:
+2.  It must handle invalid input (e.g., missing file, too few arguments).
+3.  Output must mimic grep's style as closely as possible.
+  
+Ì∑™ Hands-On Validation: You must test your script with the file testfile.txt containing the following:
+Hello world
+This is a test
+another test line
+HELLO AGAIN
+Don't match this line
+Testing one two three
+‚úÖ Include:
+‚Ä¢ Screenshot of your terminal running the script with: 
+    ‚ó¶ ./mygrep.sh hello testfile.txt
+    ‚ó¶ ./mygrep.sh -n hello testfile.txt
+    ‚ó¶ ./mygrep.sh -vn hello testfile.txt
+    ‚ó¶ ./mygrep.sh -v testfile.txt (expect: script should warn about missing search string)
+  
+Ì∑† Reflective Section
+In your submission, include:
+1.  A breakdown of how your script handles arguments and options.
+2.  A short paragraph: If you were to support regex or -i/-c/-l options, how would your structure change?
+3.  What part of the script was hardest to implement and why?
+  
+ÌøÜ Bonus:
+‚Ä¢ Add support for --help flag to print usage info.
+‚Ä¢ Improve option parsing using getopts.
