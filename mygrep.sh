@@ -10,7 +10,7 @@ option_two=""
 
 
 
-<<validation #"""input scenarios
+#<<validation #"""input scenarios
 
 #In case the first argument is the file
         # then only execute the grep function
@@ -20,11 +20,11 @@ option_two=""
 
 #else if there's no file name passed to the script
         # output that's the filename should be passed and exit the script
-validation
+#validation
 
 # Validating Input
-echo " inputs number 	$#"
-echo " inputs 		$1 $2 $3 $4"; echo ; echo ;
+#echo " inputs number 	$#"
+#echo " inputs 		$1 $2 $3 $4"; echo ; echo ;
 
 ## validating if there's no input at all
 if [[ -z $1 ]] || [[ $1 = "--help" ]]; then
@@ -46,7 +46,8 @@ if [ $# -eq 4 ]; then
   filename=$4
 
   if [[ "$1" = "-n" && "$2" = "-v" && -e $filename ]] || [[ "$2" = "-n" && "$1" = "-v" && -e $filename ]]; then
-    echo "correct 4 arguments"
+    #echo "correct 4 arguments"
+    echo; 
   else
     echo "Please, provide valid arguments."
   fi
@@ -58,7 +59,8 @@ elif [ $# -eq 3 ]; then
   search_string=$2
   filename=$3
   if [[ "$1" = "-n" || "$1" = "-v" || "$1" = "-vn" || "$1" = "-nv" ]] && [[ -e $filename ]]; then
-    echo "correct 3 arguments"
+    #echo "correct 3 arguments"
+    echo;
   else
     echo "Please, Provide valid arguments or filename"
   fi
@@ -67,7 +69,7 @@ elif [ $# -eq 3 ]; then
 elif [ $# -eq 2 ] && [ -e $2 ]; then
   search_string=$1
   filename=$2
-  echo "correct filename" 
+  #echo "correct filename" 
 
 else 
 
@@ -76,26 +78,23 @@ else
 fi
  
 
-echo; echo; echo; echo; echo "##################";
-echo "search string is \e[31m $search_string \e[0m , and filename is $filename" #Trying to add colour here
+#echo; echo; echo; echo; echo "##################";
+#echo "search string is $search_string , and filename is $filename" #Trying to add colour here
 
-
-<<body # the body of the grep function
+# command characteristics 
+#<<body 	# the body of the grep function
+	# should be case insensitive
 	# finding the words inside the file
 	# outputing the words with a color
 	# impleminting the -n flag ( line number for each match )
 	# impleminting the -v flag ( invert the match - print lines that doesn't match - )
 
-body
+#body
+#cat -n $filename | awk -v pat="$search_string" '$0 ~ pat'; echo " basic command output" 
+# read entire file with line numbers --pass-it-to-awk--> printing lines containing the given searsh-string in variable
 
 
-# Initial basic search for a word ( every word )
-echo "basic search output -> "; echo;
-cat -n $filename | awk -v pat="$search_string" '$0 ~ pat'
-
-
-
-
+# command 
 if [[ $option_one && $option_two ]]; then
   
   echo "-vn option"
