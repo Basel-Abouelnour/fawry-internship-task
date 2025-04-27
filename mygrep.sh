@@ -92,3 +92,30 @@ body
 # Initial basic search for a word ( every word )
 echo "basic search output -> "; echo;
 cat -n $filename | awk -v pat="$search_string" '$0 ~ pat'
+
+
+
+
+if [[ $option_one && $option_two ]]; then
+  
+  echo "-vn option"
+  # here comes the command with -vn option , didn't figure it out, yet.
+ 
+elif [[ $option_one = "-n" || $option_one = "-n" ]]; then
+  
+  cat -n $filename | awk -v pat="$search_string" '$0 ~ pat'
+
+elif [[ $option_one = "-v" || $option_two = "-v" ]]; then
+  
+  echo " -v option "	
+  #  here comes the command with -v option , didn't figure it out, yet.	
+
+else
+  
+   cat  $filename | awk -v pat="$search_string" '$0 ~ pat'
+
+fi
+
+
+
+
