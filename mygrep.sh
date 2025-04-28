@@ -100,6 +100,7 @@ if [[ $option_one && $option_two ]] || [[ $option_one = "-vn" ]] || [[ $option_o
   
   #echo "-vn option"
   # here comes the command with -vn option , didn't figure it out, yet.
+  # just needed to "not" the search_string
   cat -n $filename |  awk -v pat="$search_string" 'BEGIN { IGNORECASE=1 } !($0 ~ pat) { print }'
  
 elif [[ $option_one = "-n" || $option_two = "-n" ]]; then
@@ -109,7 +110,6 @@ elif [[ $option_one = "-n" || $option_two = "-n" ]]; then
 elif [[ $option_one = "-v" || $option_two = "-v" ]]; then
   
   #echo " -v option "	
-  #  here comes the command with -v option , didn't figure it out, yet.
   cat  $filename |  awk -v pat="$search_string" 'BEGIN { IGNORECASE=1 } !($0 ~ pat) { print }'  
 
 else
