@@ -61,3 +61,4 @@ curl localhost:443
 ```
 
 - and to add a local dns entry `10.20.30.40  internal.example.com` to the /etc/hosts file, which will override other dns configuration (based on the /etc/nsswitch.conf file)
+- I didn't provide screenshots because there's no actull dashboard, it's a "scenario" so I didn't know what to provide.
