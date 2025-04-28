@@ -24,7 +24,7 @@ sudo journalctl -u nginx
 sudo ufw status numbered
 ``` 
 
-## Now these are the most common reasons for a web server to have while trying to be accessible, let's solve them! 
+## Now these are the most common problems that a web server have making it inaccessible, let's solve them! 
 ---
 
 ## solving the problems
