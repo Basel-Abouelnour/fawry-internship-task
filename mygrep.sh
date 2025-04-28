@@ -95,23 +95,26 @@ fi
 
 
 # command 
-if [[ $option_one && $option_two ]]; then
+echo;
+if [[ $option_one && $option_two ]] || [[ $option_one = "-vn" ]] || [[ $option_one = "-nv" ]] ; then
   
-  echo "-vn option"
+  #echo "-vn option"
   # here comes the command with -vn option , didn't figure it out, yet.
+  cat -n $filename |  awk -v pat="$search_string" 'BEGIN { IGNORECASE=1 } !($0 ~ pat) { print }'
  
-elif [[ $option_one = "-n" || $option_one = "-n" ]]; then
+elif [[ $option_one = "-n" || $option_two = "-n" ]]; then
   
-  cat -n $filename | awk -v pat="$search_string" '$0 ~ pat'
+  cat -n $filename |  awk -v pat="$search_string" 'BEGIN { IGNORECASE=1 } $0 ~ pat { print }'
 
 elif [[ $option_one = "-v" || $option_two = "-v" ]]; then
   
-  echo " -v option "	
-  #  here comes the command with -v option , didn't figure it out, yet.	
+  #echo " -v option "	
+  #  here comes the command with -v option , didn't figure it out, yet.
+  cat  $filename |  awk -v pat="$search_string" 'BEGIN { IGNORECASE=1 } !($0 ~ pat) { print }'  
 
 else
   
-   cat  $filename | awk -v pat="$search_string" '$0 ~ pat'
+  awk -v pat="$search_string" 'BEGIN { IGNORECASE=1 } $0 ~ pat { print }' "$filename"
 
 fi
 
